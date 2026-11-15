@@ -5,7 +5,7 @@ Welcome to this repository. This project was engineered and built by **Javier Ro
 ### About the Project
 Garito is an event management startup founded in 2026 that hosts parties and nightlife events at Warsaw's premier clubs, such as Blu Club, Room 13, Schodki, and Barka. 
 
-This data pipeline was engineered to solve real-world operational challenges for an active business. By integrating directly with **Fourvenues** (the ticketing and management software used by Garito), the system automates data centralization into **Databricks**. Some sensitive operational data has been anonymized to ensure complete legal and regulatory compliance.
+This data pipeline was engineered to solve real world operational challenges for an active business. By integrating directly with **Fourvenues** (the ticketing and management software used by Garito), the system automates data centralization into **Databricks**. Some sensitive operational data has been anonymized to ensure complete legal and regulatory compliance.
 
 The resulting analytical models directly power critical business operations, including **billing automation, accounting reconciliations, and executive BI dashboards**.
 
