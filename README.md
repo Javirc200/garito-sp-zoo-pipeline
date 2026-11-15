@@ -46,13 +46,20 @@ The data flows through three strictly segregated analytical layers hosted within
 ├── 02_silver_cleaning_and_pii.py  # Data cleaning, business rules & GDPR masking
 ├── 03_gold_star_schema.py         # Dimensional modeling (Star Schema for BI/Billing)
 └── README.md                      # Project documentation
----
+```
 
 ## 🔄 Automated Orchestration (Databricks Workflows)
 To ensure financial dashboards and accounting sheets are always up-to-date every morning, the pipeline is fully automated via a daily scheduled Databricks Job structured as a Directed Acyclic Graph (DAG):
 
 Plaintext
 [ 01_ingest_bronze ] ──► [ 02_transform_silver ] ──► [ 03_model_gold_star_schema ]
+
+
+## 🏗️ Pipeline Architecture & Workflow
+
+The data pipeline is fully automated in Databricks using a **three-task chained workflow**, applying the Medallion Architecture (Bronze $\rightarrow$ Silver $\rightarrow$ Gold):
+
+![Databricks Pipeline Workflow](assets/workflow_dag.png)
 Dynamic Date Window: Leverages Python's datetime utilities to fetch the latest active records dynamically on each daily run.
 
 Fault Tolerance: Strict task dependencies ensure downstream tables are never updated if upstream API extractions encounter issues.
