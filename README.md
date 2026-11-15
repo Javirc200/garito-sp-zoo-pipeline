@@ -46,3 +46,16 @@ The data flows through three strictly segregated analytical layers hosted within
 ├── 02_silver_cleaning_and_pii.py  # Data cleaning, business rules & GDPR masking
 ├── 03_gold_star_schema.py         # Dimensional modeling (Star Schema for BI/Billing)
 └── README.md                      # Project documentation
+---
+
+## 🔄 Automated Orchestration (Databricks Workflows)
+To ensure financial dashboards and accounting sheets are always up-to-date every morning, the pipeline is fully automated via a daily scheduled Databricks Job structured as a Directed Acyclic Graph (DAG):
+
+Plaintext
+[ 01_ingest_bronze ] ──► [ 02_transform_silver ] ──► [ 03_model_gold_star_schema ]
+Dynamic Date Window: Leverages Python's datetime utilities to fetch the latest active records dynamically on each daily run.
+
+Fault Tolerance: Strict task dependencies ensure downstream tables are never updated if upstream API extractions encounter issues.
+
+📄 License & Confidentiality
+This repository contains proprietary architecture layouts, data models, and integration scripts developed exclusively for Garito SP ZOO. Access is strictly private.
