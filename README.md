@@ -13,7 +13,7 @@ The resulting analytical models directly power critical business operations, inc
 
 ## 🏢 Business Context & Problem Statement
 
-Running a high-volume entertainment startup dealing with ticket sales, multi-event passes, and venue wallet transactions requires reliable, automated financial tracking. This architecture was designed to solve key operational hurdles:
+Running a high volume entertainment startup dealing with ticket sales, multi event passes, and venue wallet transactions requires reliable, automated financial tracking. This architecture was designed to solve key operational hurdles:
 * **Billing & Accounting:** Centralizing clean financial transaction logs for automated reporting and daily financial closing.
 * **Operational Analytics:** Tracking performance and attendance across venues and events (e.g., distinguishing standard tickets from multi-event passes like *Barka & Room 13*).
 * **BI & Decision Making:** Feeding structured Star Schema models into downstream business intelligence tools for real-time revenue tracking and customer insights.
