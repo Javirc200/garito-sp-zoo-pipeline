@@ -7,11 +7,18 @@ from pyspark.sql.types import StructType, StructField, StringType
 # ==========================================
 # 1. SECURE CONFIGURATION VIA WIDGETS (secrets would be a better option but they are not available in free edition)
 # ==========================================
-dbutils.widgets.text("fourvenues_api_key_input", "", "Fourvenues API Key")
-API_KEY = dbutils.widgets.get("fourvenues_api_key_input")
+try:
+    dbutils.widgets.text("fourvenues_api_key_input", "", "Fourvenues API Key")
+    API_KEY = dbutils.widgets.get("fourvenues_api_key_input")
+except Exception:
+    API_KEY = ""
 
+# If widget is empty then take parameter from the job
 if not API_KEY:
-    raise ValueError("Please enter your Fourvenues API Key in the widget box at the top of the notebook.")
+    try:
+        API_KEY = dbutils.job.taskValues.get(task_key=None, key="fourvenues_api_key_input", default="")
+    except Exception:
+        pass
 
 BASE_URL = "https://api.fourvenues.com/integrations"
 
